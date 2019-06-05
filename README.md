@@ -5,6 +5,7 @@ E-commerce mobile application developed using React Native :necktie: :tophat:
 - React Native
 - Redux / Saga
 - JSON Server
+- TDD (Test Driven Development)
 
 ## Dependencies
 
@@ -34,7 +35,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-[Gabriel Hahn Schaeffer](https://github.com/gabriel-hahn/) | [Rocketseat Course](https://github.com/Rocketseat)
+[Gabriel Hahn Schaeffer](https://github.com/gabriel-hahn/)
 
 See also the list of [contributors](https://github.com/gabriel-hahn/react-native-ecommerce/contributors) who participated in this project.
 
