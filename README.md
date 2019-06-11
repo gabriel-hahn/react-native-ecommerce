@@ -25,6 +25,26 @@ To run JSON Server, you could do some configurations or execute the follow comma
 $ json-server server.json -p 3001 -w -d 500
 ```
 
+To run the project, you must have installed Android and/or iOS environment. Use 'run-ios' or 'run-android':
+
+```sh
+$ react-native run-ios
+```
+
+## Tests
+
+Run the follow command to execute all tests:
+
+```sh
+$ yarn test
+```
+
+To run tests with coverage:
+
+```sh
+$ yarn test --coverage
+```
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
