@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-import { Text } from 'react-native';
-
-import { Container } from './styles';
+import { Container, Categories, Categorie } from './styles';
 
 export default class CategoriesHeader extends Component {
   componentDidMount() {}
@@ -10,10 +8,12 @@ export default class CategoriesHeader extends Component {
   render() {
     return (
       <Container>
-        <Text>T-shirts</Text>
-        <Text>Shirts</Text>
-        <Text>Cap</Text>
-        <Text>Pants</Text>
+        <Categories>
+          <Categorie>Shirts</Categorie>
+          <Categorie>Hats</Categorie>
+          <Categorie>Pants</Categorie>
+          <Categorie>Shoes</Categorie>
+        </Categories>
       </Container>
     );
   }
