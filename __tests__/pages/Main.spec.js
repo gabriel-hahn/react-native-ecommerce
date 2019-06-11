@@ -1,9 +1,8 @@
 import React from 'react';
-import { Provider } from 'redux';
-import createStore from 'redux-mock-store';
 import ReactTestRender from 'react-test-renderer';
 
-import Main from '../../src/pages/Main';
+import Main from '~/pages/Main';
+import CategoriesHeader from '~/components/CategoriesHeader';
 
 let wrapper;
 
@@ -12,7 +11,15 @@ beforeEach(() => {
 });
 
 describe('Main page', () => {
-  it('Should render Main page correctly', () => {
-    // expect(wrapper.toJSON()).toMatchSnapshot();
+  describe('Smoke tests', () => {
+    it('Should render Main page correctly', () => {
+      // expect(wrapper.toJSON()).toMatchSnapshot();
+    });
+  });
+
+  describe('Component structure', () => {
+    it('Should have one CategoriesHeader instance', () => {
+      expect(wrapper.root.findAllByType(CategoriesHeader).length).toEqual(1);
+    });
   });
 });
