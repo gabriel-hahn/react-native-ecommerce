@@ -5,7 +5,7 @@ E-commerce mobile application developed using React Native :necktie: :tophat:
 - React Native
 - Redux / Saga
 - JSON Server
-- TDD (Test Driven Development)
+- Unit tests
 
 ## Dependencies
 
