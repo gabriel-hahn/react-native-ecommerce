@@ -18,9 +18,10 @@ const INITIAL_STATE = Immutable({
 });
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.SET_PRODUCTS_SUCCESS]: (state, { products }) => ({
+  [Types.SET_PRODUCTS_SUCCESS]: (state, { products, categoryId }) => ({
     ...state,
     products,
+    categoryId,
     errorMessage: null,
   }),
   [Types.SET_ERROR]: (state, { errorMessage }) => ({ ...state, errorMessage }),

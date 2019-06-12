@@ -3,18 +3,21 @@ import api from '~/services/api';
 
 import ProductActions from '~/store/ducks/products';
 
-export function* setProducts() {
-  const currentId = yield select(state => state.products.categoryId);
-  const response = yield call(api.get, `/category_products/${currentId}`);
+function* loadProducts(categoryId) {
+  const response = yield call(api.get, `/category_products/${categoryId}`);
 
   if (response) {
-    yield put(ProductActions.setProductsSuccess(response.data));
+    yield put(ProductActions.setProductsSuccess(response.data, categoryId));
   } else {
     yield put(ProductActions.setError('Oh, something is wrong now, try again!'));
   }
 }
 
+export function* setProducts() {
+  const currentId = yield select(state => state.products.categoryId);
+  yield loadProducts(currentId);
+}
+
 export function* setCategoryId({ categoryId }) {
-  yield put(ProductActions.setCategoryId(categoryId));
-  setProducts();
+  yield loadProducts(categoryId);
 }

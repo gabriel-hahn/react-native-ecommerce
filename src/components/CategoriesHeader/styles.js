@@ -9,11 +9,13 @@ export const Categories = styled.View`
   flex-direction: row;
   justify-content: space-around;
 
-  margin: 18px;
+  margin: 16px;
 `;
 
-export const Categorie = styled.Text`
+export const Category = styled.TouchableOpacity``;
+
+export const CategoryText = styled.Text`
   font-size: 17px;
   font-weight: bold;
-  color: #f5bcbc;
+  color: ${props => (props.current ? '#fff' : '#f5bcbc')};
 `;
