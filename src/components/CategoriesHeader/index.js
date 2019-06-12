@@ -9,21 +9,37 @@ import {
   Container, Categories, Category, CategoryText,
 } from './styles';
 
+/**
+ * Categories in this app are static. In a next improvement or necessity of the ecommerce, it's possible
+ * retrieve categories of a API, being dynamic.
+ */
+const categories = [
+  {
+    id: 1,
+    name: "Camisetas"
+  },
+  {
+    id: 2, 
+    name: "Camisas"
+  },
+  {
+    id: 3,
+    name: "Calças"
+  },
+  {
+    id: 4,
+    name: "Bonés"
+  },
+];
+
 const CategoriesHeader = ({ currentCategory, setCategoryId }) => (
   <Container>
     <Categories>
-      <Category onPress={() => setCategoryId(1)}>
-        <CategoryText current={currentCategory === 1}>Camisetas</CategoryText>
-      </Category>
-      <Category onPress={() => setCategoryId(2)}>
-        <CategoryText current={currentCategory === 2}>Camisas</CategoryText>
-      </Category>
-      <Category onPress={() => setCategoryId(3)}>
-        <CategoryText current={currentCategory === 3}>Calças</CategoryText>
-      </Category>
-      <Category onPress={() => setCategoryId(4)}>
-        <CategoryText current={currentCategory === 4}>Bonés</CategoryText>
-      </Category>
+      {categories.map(category => (
+        <Category key={category.id} onPress={() => setCategoryId(category.id)}>
+          <CategoryText current={currentCategory === category.id}>{category.name}</CategoryText>
+        </Category>
+      ))}
     </Categories>
   </Container>
 );
