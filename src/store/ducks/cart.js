@@ -2,8 +2,7 @@ import { createReducer, createActions } from 'reduxsauce';
 import Immutable from 'seamless-immutable';
 
 const { Types, Creators } = createActions({
-  addItemRequest: ['item', 'itemId'],
-  addItemSuccess: ['item'],
+  addItem: ['item'],
   removeItem: ['itemId'],
 });
 
@@ -15,7 +14,7 @@ const INITIAL_STATE = Immutable({
 });
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.ADD_ITEM_SUCCESS]: (state, { item }) => ({ items: [...state.items, item] }),
+  [Types.ADD_ITEM]: (state, { item }) => ({ items: [...state.items, item] }),
   [Types.REMOVE_ITEM]: (state, { itemId }) => ({
     items: [...state.items.filter(item => item.id !== itemId)],
   }),

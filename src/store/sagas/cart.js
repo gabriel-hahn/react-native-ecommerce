@@ -1,8 +1,11 @@
-import { call, put } from 'redux-saga/effects';
-import api from '~/services/api';
+import { put } from 'redux-saga/effects';
 
 import CartActions from '~/store/ducks/cart';
 
-export function* addItem({ itemId }) {}
+export function* addItem({ itemId }) {
+  yield put(CartActions.addItem(itemId));
+}
 
-export function* removeItem({ itemId }) {}
+export function* removeItem({ itemId }) {
+  yield put(CartActions.removeItem(itemId));
+}

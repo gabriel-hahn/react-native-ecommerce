@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ProductActions from '~/store/ducks/products';
-import CategoriesActions from '~/store/ducks/categories';
+import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
@@ -14,32 +14,27 @@ class Main extends Component {
     headerTitleStyle: { color: '#f19d9d' },
   };
 
-  componentDidMount() {
-    const { setCategoriesRequest, setProductsRequest } = this.props;
+  static propTypes = {
+    setProductsRequest: PropTypes.func.isRequired,
+  };
 
-    setCategoriesRequest();
+  componentDidMount() {
+    const { setProductsRequest } = this.props;
     setProductsRequest();
   }
 
   render() {
-    const { currentCategoryId } = this.props;
-
     return (
       <Container>
-        <CategoriesHeader currentCategory={currentCategoryId} />
+        <CategoriesHeader />
       </Container>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ ...ProductActions, ...CategoriesActions }, dispatch);
-
-const mapStateToProps = state => ({
-  currentCategoryId: state.categories.currentId,
-  products: state.products,
-});
+const mapDispatchToProps = dispatch => bindActionCreators(ProductActions, dispatch);
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 )(Main);

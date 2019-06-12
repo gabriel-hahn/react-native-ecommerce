@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { Container, Categories, Categorie } from './styles';
 
-export default class CategoriesHeader extends Component {
-  componentDidMount() {}
+const CategoriesHeader = () => (
+  <Container>
+    <Categories>
+      <Categorie>Camisetas</Categorie>
+      <Categorie>Camisas</Categorie>
+      <Categorie>Calças</Categorie>
+      <Categorie>Bonés</Categorie>
+    </Categories>
+  </Container>
+);
 
-  render() {
-    return (
-      <Container>
-        <Categories>
-          <Categorie>Shirts</Categorie>
-          <Categorie>Hats</Categorie>
-          <Categorie>Pants</Categorie>
-          <Categorie>Shoes</Categorie>
-        </Categories>
-      </Container>
-    );
-  }
-}
+export default CategoriesHeader;

@@ -3,8 +3,9 @@ import Immutable from 'seamless-immutable';
 
 const { Types, Creators } = createActions({
   setProductsRequest: null,
-  setProductsSuccess: ['products'],
   setError: ['errorMessage'],
+  setCategoryId: ['categoryId'],
+  setProductsSuccess: ['products', 'categoryId'],
 });
 
 export const ProductTypes = Types;
@@ -12,6 +13,7 @@ export default Creators;
 
 const INITIAL_STATE = Immutable({
   products: [],
+  categoryId: 1,
   errorMessage: null,
 });
 
@@ -22,4 +24,5 @@ export const reducer = createReducer(INITIAL_STATE, {
     errorMessage: null,
   }),
   [Types.SET_ERROR]: (state, { errorMessage }) => ({ ...state, errorMessage }),
+  [Types.SET_CATEGORY_ID]: (state, { categoryId }) => ({ ...state, categoryId }),
 });
