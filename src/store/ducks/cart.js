@@ -20,6 +20,6 @@ export const reducer = createReducer(INITIAL_STATE, {
     items: [...state.items.filter(item => item.id !== itemId)],
   }),
   [Types.INCREASE_ITEM_QUANTITY]: (state, { itemId }) => ({
-    items: [...state.items, ...state.items.find(item.id === itemId).quantity++]
+    items: state.items.map(item => (item.id === itemId ? { ...item, quantity: quantity++ } : item))
   })
 });
