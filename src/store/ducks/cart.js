@@ -4,6 +4,7 @@ import Immutable from 'seamless-immutable';
 const { Types, Creators } = createActions({
   addItem: ['item'],
   removeItem: ['itemId'],
+  increaseItemQuantity: ['itemId']
 });
 
 export const CartTypes = Types;
@@ -18,4 +19,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.REMOVE_ITEM]: (state, { itemId }) => ({
     items: [...state.items.filter(item => item.id !== itemId)],
   }),
+  [Types.INCREASE_ITEM_QUANTITY]: (state, { itemId }) => ({
+    items: [...state.items, ...state.items.find(item.id === itemId).quantity++]
+  })
 });
