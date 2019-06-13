@@ -4,7 +4,7 @@ import Immutable from 'seamless-immutable';
 const { Types, Creators } = createActions({
   loadCategoriesRequest: null,  
   loadCategoriesSuccess: ['items'],
-  setCurrent: ['current'],
+  setCurrent: ['currentId'],
 });
 
 export const CategoriesTypes = Types;

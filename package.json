@@ -55,9 +55,10 @@
     "collectCoverageFrom": [
       "src/components/**/*.js",
       "src/pages/**/*.js",
-      "src/routes/*.js",
       "src/store/ducks/*.js",
-      "src/store/sagas/*.js"
+      "!src/store/ducks/index.js",
+      "src/store/sagas/*.js",
+      "!src/store/sagas/index.js"
     ]
   }
 }

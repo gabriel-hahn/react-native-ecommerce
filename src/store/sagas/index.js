@@ -8,7 +8,7 @@ import { loadCategories } from './categories';
 
 export default function* rootSaga() {
   yield all([
-    takeLatest(ProductTypes.SET_PRODUCTS_REQUEST, loadProducts),
-    takeLatest(ProductTypes.SET_CATEGORIES_REQUEST, loadCategories),
+    takeLatest(ProductTypes.LOAD_PRODUCTS_REQUEST, loadProducts),
+    takeLatest(CategoriesTypes.LOAD_CATEGORIES_REQUEST, loadCategories),
   ]);
 }

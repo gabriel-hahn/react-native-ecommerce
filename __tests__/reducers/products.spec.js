@@ -2,8 +2,6 @@ import ProductsActions, { reducer } from '~/store/ducks/products';
 
 const INITIAL_STATE = {
   items: [],
-  categoryId: 1,
-  errorMessage: null,
 };
 
 const products = {
@@ -26,7 +24,7 @@ const products = {
 };
 
 describe('Products Reducer', () => {
-  it('Should be able to set items', () => {
+  it('Should be able load all products', () => {
     const state = reducer(INITIAL_STATE, ProductsActions.loadProductsSuccess(products.items));
 
     expect(state.items).toEqual(products.items);

@@ -15,7 +15,7 @@ const INITIAL_STATE = Immutable({
 });
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.ADD_ITEM]: (state, { item }) => ({ items: [...state.items, item] }),
+  [Types.ADD_ITEM]: (state, { item }) => ({ items: [...state.items, { ...item, quantity: 1 }] }),
   [Types.REMOVE_ITEM]: (state, { itemId }) => ({
     items: [...state.items.filter(item => item.id !== itemId)],
   }),
