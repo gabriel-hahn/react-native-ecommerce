@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { Container } from './styles';
 
 import CategoriesHeader from '~/components/CategoriesHeader';
+import ProductsList from '~/components/ProductsList';
 
 class Main extends Component {
   static navigationOptions = {
@@ -27,6 +28,7 @@ class Main extends Component {
     return (
       <Container>
         <CategoriesHeader />
+        <ProductsList />
       </Container>
     );
   }
