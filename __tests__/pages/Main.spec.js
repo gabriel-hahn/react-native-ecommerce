@@ -8,19 +8,19 @@ import Main from '~/pages/Main';
 const mockStore = createStore();
 
 const INITIAL_STATE = {
-  products:  {
-    items:  [
-        {
+  products: {
+    items: [
+      {
         id: 1,
         name: 'Camiseta Hyperas Preta',
         brand: 'Quiksilver',
         image: 'https://t-static.dafiti.com.br/cer-243-1-product.jpg',
         price: 49.99,
-        }
+      },
     ],
     categoryId: 3,
-    errorMessage: null
-  }    
+    errorMessage: null,
+  },
 };
 
 let wrapper;

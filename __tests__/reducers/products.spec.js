@@ -14,15 +14,18 @@ const products = {
       brand: 'Quiksilver',
       image: 'https://t-static.dafiti.com.br/cer-243-1-product.jpg',
       price: 49.99,
-    }
+    },
   ],
   categoryId: 3,
-  errorMessage: "Error message test"
+  errorMessage: 'Error message test',
 };
 
 describe('Products Reducer', () => {
   it('Should be able to set items', () => {
-    const state = reducer(INITIAL_STATE, ProductsActions.setProductsSuccess(products.items, products.categoryId));
+    const state = reducer(
+      INITIAL_STATE,
+      ProductsActions.setProductsSuccess(products.items, products.categoryId),
+    );
 
     expect(state.items).toEqual(products.items);
     expect(state.categoryId).toEqual(products.categoryId);

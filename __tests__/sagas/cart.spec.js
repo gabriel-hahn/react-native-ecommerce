@@ -5,10 +5,10 @@ import CartActions from '~/store/ducks/cart';
 
 const item = {
   id: 1,
-  name: "Camiseta Hyperas Preta",
-  brand: "Quiksilver",
-  image: "https://t-static.dafiti.com.br/czCvp3wBNPfehf7omYZfJacnPY=/product.jpg",
-  price: 49.99
+  name: 'Camiseta Hyperas Preta',
+  brand: 'Quiksilver',
+  image: 'https://t-static.dafiti.com.br/czCvp3wBNPfehf7omYZfJacnPY=/product.jpg',
+  price: 49.99,
 };
 
 let dispatched;
@@ -46,7 +46,7 @@ describe('Cart Saga', () => {
   it('Should be able to remove one item of the cart', async () => {
     await runSaga(
       {
-        dispatch: (action) => dispatched.push(action),
+        dispatch: action => dispatched.push(action),
       },
       () => removeItem({ itemId: 1 }),
     ).toPromise();

@@ -26,8 +26,8 @@ describe('Products Saga', () => {
       setProducts,
     ).toPromise();
 
-    const action = { categoryId: 3, items: apiResponse, type: "SET_PRODUCTS_SUCCESS" };
-    const initialDispatched = { type: "SET_PRODUCTS_REQUEST" };
+    const action = { categoryId: 3, items: apiResponse, type: 'SET_PRODUCTS_SUCCESS' };
+    const initialDispatched = { type: 'SET_PRODUCTS_REQUEST' };
 
     expect(initialDispatched).toEqual(ProductsActions.setProductsRequest());
     expect(dispatched).toContainEqual(action);
@@ -43,8 +43,8 @@ describe('Products Saga', () => {
       () => setCategoryId({ categoryId: 2 }),
     ).toPromise();
 
-    const action = { categoryId: 2, items: apiResponse, type: "SET_PRODUCTS_SUCCESS" };
-    const initialDispatched = { type: "SET_CATEGORY_ID" };
+    const action = { categoryId: 2, items: apiResponse, type: 'SET_PRODUCTS_SUCCESS' };
+    const initialDispatched = { type: 'SET_CATEGORY_ID' };
 
     expect(initialDispatched).toEqual(ProductsActions.setCategoryId());
     expect(dispatched).toContainEqual(action);

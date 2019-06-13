@@ -10,25 +10,25 @@ import {
 } from './styles';
 
 /**
- * Categories in this app are static. In a next improvement or necessity of the ecommerce, it's possible
- * retrieve categories of a API, being dynamic.
+ * Categories in this app are static. In a next improvement or necessity of the ecommerce,
+ * it's possible retrieve categories of a API, being dynamic.
  */
 const categories = [
   {
     id: 1,
-    name: "Camisetas"
+    name: 'Camisetas',
   },
   {
-    id: 2, 
-    name: "Camisas"
+    id: 2,
+    name: 'Camisas',
   },
   {
     id: 3,
-    name: "Calças"
+    name: 'Calças',
   },
   {
     id: 4,
-    name: "Bonés"
+    name: 'Bonés',
   },
 ];
 
