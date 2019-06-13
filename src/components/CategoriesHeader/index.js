@@ -1,59 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import ProductActions from '~/store/ducks/products';
+import CategoriesActions from '~/store/ducks/categories';
 
 import {
   Container, Categories, Category, CategoryText,
 } from './styles';
 
-/**
- * Categories in this app are static. In a next improvement or necessity of the ecommerce,
- * it's possible retrieve categories of a API, being dynamic.
- */
-const categories = [
-  {
-    id: 1,
-    name: 'Camisetas',
-  },
-  {
-    id: 2,
-    name: 'Camisas',
-  },
-  {
-    id: 3,
-    name: 'Calças',
-  },
-  {
-    id: 4,
-    name: 'Bonés',
-  },
-];
+class CategoriesHeader extends Component {
+  static propTypes = {
+    currentCategory: PropTypes.number.isRequired,
+    setCurrent: PropTypes.func.isRequired,
+  };
 
-const CategoriesHeader = ({ currentCategory, setCategoryId }) => (
-  <Container>
-    <Categories>
-      {categories.map(category => (
-        <Category key={category.id} onPress={() => setCategoryId(category.id)}>
-          <CategoryText current={currentCategory === category.id}>{category.name}</CategoryText>
-        </Category>
-      ))}
-    </Categories>
-  </Container>
-);
+  componentDidMount() {
+    const { loadCategoriesRequest } = this.props;
 
-CategoriesHeader.propTypes = {
-  currentCategory: PropTypes.number.isRequired,
-  setCategoryId: PropTypes.func.isRequired,
-};
+    loadCategoriesRequest();
+  }
+
+  handleCurrentCategory = currentId => {
+    const { setCurrent } = this.props;
+
+    setCurrent({ currentId });
+  }
+
+  render() {
+    const { categories, currentCategory, setCurrent }  = this.props;
+
+    return (
+      <Container>
+        <Categories>
+          {categories.map(category => (
+            <Category key={category.id} onPress={() => this.handleCurrentCategory(category.id)}>
+              <CategoryText current={currentCategory === category.id}>{category.title}</CategoryText>
+            </Category>
+          ))}
+        </Categories>
+      </Container>
+    );
+  }
+}
 
 const mapStateToProps = state => ({
-  currentCategory: state.products.categoryId,
+  currentCategory: state.categories.currentId,
+  categories: state.categories.items,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(ProductActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(CategoriesActions, dispatch);
 
 export default connect(
   mapStateToProps,

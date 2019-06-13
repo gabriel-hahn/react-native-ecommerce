@@ -8,8 +8,18 @@ import CategoriesHeader from '~/components/CategoriesHeader';
 const mockStore = createStore();
 
 const INITIAL_STATE = {
-  products:  {
-    categoryId: 3
+  categories:  {
+    items: [
+      {
+        id: 1,
+        title: 'T-shirt'
+      },
+      {
+        id: 2,
+        title: 'Shoes'
+      }
+    ],
+    currentId: 2,
   }    
 };
 
@@ -24,13 +34,15 @@ beforeEach(() => {
 });
 
 describe('CategoriesHeader Component', () => {
-  /*describe('Smoke tests', () => {
-    // expect(wrapper.toJSON()).toMatchSnapshot();
-  });*/
+  describe('Smoke tests', () => {
+    it('Should render CategoriesHeader component correctly', () => {
+      // expect(wrapper.toJSON()).toMatchSnapshot();
+    });    
+  });
 
   describe('Component strucuture', () => {
-    it('Should render 4 categories', () => {
-      expect(wrapper.root.findAllByType('Text').length).toBe(4);
+    it('Should render 2 categories', () => {
+      expect(wrapper.root.findAllByType('Text').length).toBe(2);
     });
   });
 });

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import ProductsActions from '~/store/ducks/products';
+
 import ProductDetails from '~/components/ProductDetails';
 
 import { Container, Product, ProductImage, ProductDetail } from './styles';
@@ -11,6 +13,12 @@ class ProductList extends Component {
     showProductDetails: false,
     productClicked: null,
   };
+
+  componentDidMount() {
+    const { categoryId, loadProductsRequest } = this.props;
+
+    loadProductsRequest({ categoryId });
+  }
 
   handleProductClick = item => {
     this.setState({ showProductDetails: true, productClicked: item });
@@ -41,6 +49,9 @@ class ProductList extends Component {
 
 const mapStateToProps = state => ({
   items: state.products.items,
+  categoryId: state.categories.currentId,
 });
 
-export default connect(mapStateToProps)(ProductList);
+const mapDispatchToProps = dispatch => bindActionCreators(ProductsActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
