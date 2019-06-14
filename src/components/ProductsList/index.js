@@ -4,28 +4,21 @@ import PropTypes from 'prop-types';
 
 import ProductsActions from '~/store/ducks/products';
 
-import ProductDetails from '~/components/ProductDetails';
-
 import { Container, Product, ProductImage, ProductDetail } from './styles';
 
 class ProductList extends Component {
-  state = {
-    showProductDetails: false,
-    productClicked: null,
-  };
-
   componentDidMount() {
     const { categoryId, loadProductsRequest } = this.props;
 
     loadProductsRequest({ categoryId });
   }
 
-  handleProductClick = item => {
-    this.setState({ showProductDetails: true, productClicked: item });
+  handleProductClick = product => {
+    const { navigation } = this.props;
+    //navigation.navigate('Product', { product })
   }
 
   render() {
-    const { showProductDetails, productClicked } = this.state;
     const { items } = this.props;
 
     return (
@@ -40,8 +33,6 @@ class ProductList extends Component {
             </ProductDetail>
           </Product>
         ))}
-
-        {showProductDetails && <ProductDetails product={productClicked} />}
       </Container>
     );
   }

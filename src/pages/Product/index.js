@@ -8,7 +8,25 @@ export default class Product extends Component {
     headerTitleStyle: { color: '#f19d9d' },
   };
 
+  handleAddToCart = product => {
+
+  }
+
   render() {
-    return <Container />;
+    const { product } = this.props;
+
+    return (
+      <Container>
+        <Product>
+          <ProductImage>
+
+          </ProductImage>
+          <ProductDetail>
+
+          </ProductDetail>
+          <AddCart onPress={() => this.handleAddToCart(product)}>Add to cart</AddCart>
+        </Product>
+      </Container>
+    );
   }
 }
