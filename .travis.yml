@@ -8,7 +8,7 @@ android:
 before_install:
   - yes | sdkmanager "platforms;android-28"
   - yes | sdkmanager "build-tools;28.0.1"
-  - nvm install (jq -r '.engines.node' package.json) && nvm use (jq -r '.engines.node' package.json)
+  - nvm install $(jq -r '.engines.node' package.json) && nvm use $(jq -r '.engines.node' package.json)
   - npm install -g "npm@$(jq -r '.engines.npm' package.json)"
 install:
   - npm ci
