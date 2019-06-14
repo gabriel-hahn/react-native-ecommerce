@@ -28,7 +28,7 @@ class CategoriesHeader extends Component {
   }
 
   render() {
-    const { categories, currentCategory, setCurrent }  = this.props;
+    const { categories, currentCategory }  = this.props;
 
     return (
       <Container>
