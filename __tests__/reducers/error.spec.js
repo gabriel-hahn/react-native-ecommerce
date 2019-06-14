@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 
 describe('Error Reducer', () => {
   it('Should be able to set a new error', () => {
-    const error = { visible: true, message: "Error message" };
+    const error = { visible: true, message: 'Error message' };
     const state = reducer(INITIAL_STATE, ErrorActions.setError(error.message));
 
     expect(state).toEqual(error);

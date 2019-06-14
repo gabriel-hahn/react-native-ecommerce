@@ -13,6 +13,15 @@ beforeEach(() => {
   dispatched = [];
 });
 
+const runSagaTest = async (method, param) => {
+  await runSaga(
+    {
+      dispatch: action => dispatched.push(action),
+    },
+    () => method(param),
+  ).toPromise();
+};
+
 describe('Categories Saga', () => {
   it('Should be able to set categories', async () => {
     apiMock.onGet('/categories').reply(200, apiResponse);
@@ -26,16 +35,7 @@ describe('Categories Saga', () => {
     apiMock.onGet('/categories').reply(404, null);
     await runSagaTest(loadCategories);
 
-    const action = { message: "Oh, something is wrong now, try again!", type: "SET_ERROR" };
+    const action = { message: 'Oh, something is wrong now, try again!', type: 'SET_ERROR' };
     expect(dispatched).toContainEqual(action);
   });
 });
-
-runSagaTest = async (method, param) => {
-  await runSaga(
-    {
-      dispatch: action => dispatched.push(action),
-    },
-    () => method(param),
-  ).toPromise();
-}

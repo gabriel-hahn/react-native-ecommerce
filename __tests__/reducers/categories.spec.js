@@ -9,12 +9,12 @@ const categories = {
   items: [
     {
       id: 1,
-      title: 'T-shirt'
+      title: 'T-shirt',
     },
     {
       id: 2,
-      title: 'Shoes'
-    }
+      title: 'Shoes',
+    },
   ],
   currentId: 2,
 };

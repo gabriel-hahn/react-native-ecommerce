@@ -6,19 +6,31 @@ import { loadProducts } from '~/store/sagas/products';
 
 const apiMock = new MockAdapter(api);
 
-const apiResponse = ['Product 1', 'Product 2'];
+const apiResponse = {
+  products: ['Product 1', 'Product 2'],
+};
+
 let dispatched;
 
 beforeEach(() => {
   dispatched = [];
 });
 
+const runSagaTest = async (method, param) => {
+  await runSaga(
+    {
+      dispatch: action => dispatched.push(action),
+    },
+    () => method(param),
+  ).toPromise();
+};
+
 describe('Products Saga', () => {
   it('Should be able to set products', async () => {
     apiMock.onGet('/category_products/3').reply(200, apiResponse);
     await runSagaTest(loadProducts, { categoryId: 3 });
 
-    const action = { items: apiResponse, type: 'LOAD_PRODUCTS_SUCCESS' };
+    const action = { items: apiResponse.products, type: 'LOAD_PRODUCTS_SUCCESS' };
     expect(dispatched).toContainEqual(action);
   });
 
@@ -26,16 +38,7 @@ describe('Products Saga', () => {
     apiMock.onGet('/category_products/3').reply(404, null);
     await runSagaTest(loadProducts, { categoryId: 3 });
 
-    const action = { message: "Oh, something is wrong now, try again!", type: "SET_ERROR" };
+    const action = { message: 'Oh, something is wrong now, try again!', type: 'SET_ERROR' };
     expect(dispatched).toContainEqual(action);
   });
 });
-
-runSagaTest = async (method, param) => {
-  await runSaga(
-    {
-      dispatch: action => dispatched.push(action),
-    },
-    () => method(param),
-  ).toPromise();
-}

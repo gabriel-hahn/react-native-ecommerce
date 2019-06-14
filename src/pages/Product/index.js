@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import { Container } from './styles';
+import {
+  Container, ProductImage, ProductDetail, AddCart,
+} from './styles';
 
 export default class Product extends Component {
   static navigationOptions = {
@@ -8,9 +10,7 @@ export default class Product extends Component {
     headerTitleStyle: { color: '#f19d9d' },
   };
 
-  handleAddToCart = product => {
-
-  }
+  handleAddToCart = (product) => {};
 
   render() {
     const { product } = this.props;
@@ -18,12 +18,8 @@ export default class Product extends Component {
     return (
       <Container>
         <Product>
-          <ProductImage>
-
-          </ProductImage>
-          <ProductDetail>
-
-          </ProductDetail>
+          <ProductImage />
+          <ProductDetail />
           <AddCart onPress={() => this.handleAddToCart(product)}>Add to cart</AddCart>
         </Product>
       </Container>

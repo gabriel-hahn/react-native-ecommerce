@@ -7,9 +7,9 @@ const INITIAL_STATE = {
 const previousState = {
   items: [
     { id: 4, title: 'T-shirt test', quantity: 1 },
-    { id: 5, title: 'T-shirt test 2', quantity: 1 }
-  ]
-}; 
+    { id: 5, title: 'T-shirt test 2', quantity: 1 },
+  ],
+};
 
 describe('Cart Reducer', () => {
   it('Should be able to add itens to the cart', () => {
@@ -18,7 +18,7 @@ describe('Cart Reducer', () => {
 
     let state = reducer(INITIAL_STATE, CartActions.addItem(newItem));
     state = reducer(state, CartActions.addItem(newItem2));
-        
+
     expect(state).toEqual(previousState);
   });
 

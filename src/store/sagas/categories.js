@@ -6,7 +6,7 @@ import ErrorActions from '~/store/ducks/error';
 
 export function* loadCategories() {
   try {
-    const response = yield call(api.get, `/categories`);
+    const response = yield call(api.get, '/categories');
     yield put(CategoriesActions.loadCategoriesSuccess(response.data));
   } catch (err) {
     yield put(ErrorActions.setError('Oh, something is wrong now, try again!'));

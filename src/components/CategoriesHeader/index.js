@@ -21,21 +21,23 @@ class CategoriesHeader extends Component {
     loadCategoriesRequest();
   }
 
-  handleCurrentCategory = currentId => {
+  handleCurrentCategory = (currentId) => {
     const { setCurrent } = this.props;
 
-    setCurrent({ currentId });
-  }
+    setCurrent(currentId);
+  };
 
   render() {
-    const { categories, currentCategory }  = this.props;
+    const { categories, currentCategory } = this.props;
 
     return (
       <Container>
         <Categories>
           {categories.map(category => (
             <Category key={category.id} onPress={() => this.handleCurrentCategory(category.id)}>
-              <CategoryText current={currentCategory === category.id}>{category.title}</CategoryText>
+              <CategoryText current={currentCategory === category.id}>
+                {category.title}
+              </CategoryText>
             </Category>
           ))}
         </Categories>

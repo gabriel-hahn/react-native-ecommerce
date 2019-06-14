@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import ProductsActions from '~/store/ducks/products';
 
-import { Container, Product, ProductImage, ProductDetail } from './styles';
+import {
+  Container, Product, ProductImage, ProductDetail,
+} from './styles';
 
 class ProductList extends Component {
   componentDidMount() {
     const { categoryId, loadProductsRequest } = this.props;
 
-    loadProductsRequest({ categoryId });
+    loadProductsRequest(categoryId);
   }
 
-  handleProductClick = product => {
+  handleProductClick = (product) => {
     const { navigation } = this.props;
-    //navigation.navigate('Product', { product })
-  }
+    // navigation.navigate('Product', { product })
+  };
 
   render() {
     const { items } = this.props;
@@ -25,12 +28,8 @@ class ProductList extends Component {
       <Container>
         {items.map(item => (
           <Product key={item.id} onPress={() => this.handleProductClick(item)}>
-            <ProductImage>
-
-            </ProductImage>
-            <ProductDetail>
-            
-            </ProductDetail>
+            <ProductImage />
+            <ProductDetail />
           </Product>
         ))}
       </Container>
@@ -45,4 +44,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators(ProductsActions, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ProductList);

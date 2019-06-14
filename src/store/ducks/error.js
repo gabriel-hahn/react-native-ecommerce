@@ -16,5 +16,5 @@ export const INITIAL_STATE = Immutable({
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.SET_ERROR]: (state, { message }) => ({ visible: true, message }),
-  [Types.HIDE_ERROR]: state => ({ visible: false, message: null }),
+  [Types.HIDE_ERROR]: () => ({ visible: false, message: null }),
 });

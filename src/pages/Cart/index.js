@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
+import CartActions from '~/store/ducks/cart';
 
 import { Container, Product, Amount } from './styles';
 
@@ -15,23 +18,24 @@ class Cart extends Component {
 
     return (
       <Container>
-        {items.map(item => {
-          <Product>
+        {items.map(item => (
+          <Product />
+        ))}
 
-          </Product>
-        })}
-
-        <Amount /> 
-      </Container>      
+        <Amount />
+      </Container>
     );
   }
 }
 
 const mapStateToProps = state => ({
   items: state.cart.items,
-  amount: state.cart.reduce((n1, n2) => n1 + (n2.quantity * n2.price) , 0), // Calculate amount of price * quantity
+  amount: state.cart.items.reduce((n1, n2) => n1 + n2.quantity * n2.price, 0), // Calculate amount of price * quantity
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(ProductsActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(CartActions, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Cart);
