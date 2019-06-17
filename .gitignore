@@ -57,3 +57,6 @@ buck-out/
 
 # Tests coverage
 coverage
+
+# Snapshots
+__tests__/components/__snapshots__

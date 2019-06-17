@@ -36,7 +36,7 @@ beforeEach(() => {
 describe('CategoriesHeader Component', () => {
   describe('Smoke tests', () => {
     it('Should render CategoriesHeader component correctly', () => {
-      // expect(wrapper.toJSON()).toMatchSnapshot();
+      expect(wrapper.toJSON()).toMatchSnapshot();
     });    
   });
 
