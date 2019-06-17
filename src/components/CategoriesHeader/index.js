@@ -13,6 +13,17 @@ class CategoriesHeader extends Component {
   static propTypes = {
     currentCategory: PropTypes.number.isRequired,
     setCurrent: PropTypes.func.isRequired,
+    categories: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+      }).isRequired,
+    ),
+    loadCategoriesRequest: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    categories: [],
   };
 
   componentDidMount() {
@@ -48,7 +59,7 @@ class CategoriesHeader extends Component {
 
 const mapStateToProps = state => ({
   currentCategory: state.categories.currentId,
-  categories: state.categories.items,
+  categories: state.categories.items || [],
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(CategoriesActions, dispatch);

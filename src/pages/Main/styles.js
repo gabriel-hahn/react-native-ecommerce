@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  background: #fff;
+  background: #f6f6f6;
 `;
