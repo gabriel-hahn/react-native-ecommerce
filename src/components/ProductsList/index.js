@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 
 import ProductsActions from '~/store/ducks/products';
@@ -18,7 +19,9 @@ class ProductList extends Component {
     ).isRequired,
     categoryId: PropTypes.number.isRequired,
     loadProductsRequest: PropTypes.func.isRequired,
-    navigation: PropTypes.func.isRequired,
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+    }).isRequired,
   };
 
   state = {
@@ -45,7 +48,8 @@ class ProductList extends Component {
 
   handleProductClick = (product) => {
     const { navigation } = this.props;
-    // navigation.navigate('Product', { product })
+
+    navigation.navigate('Product', { product });
   };
 
   render() {
@@ -82,4 +86,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(ProductsActions, dispa
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ProductList);
+)(withNavigation(ProductList));

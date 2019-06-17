@@ -8,8 +8,9 @@ import FAwesomeIcon from 'react-native-vector-icons/FontAwesome5';
 
 import Main from '~/pages/Main';
 import Cart from '~/pages/Cart';
+import Product from '~/pages/Product';
 
-const Home = createStackNavigator({ Main });
+const Home = createStackNavigator({ Main, Product });
 const CartList = createStackNavigator({ Cart });
 
 const BottomNavigatorConfig = {

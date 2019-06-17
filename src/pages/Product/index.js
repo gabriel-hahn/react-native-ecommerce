@@ -1,28 +1,76 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 
+import CartActions from '~/store/ducks/cart';
+
+import { colors } from '~./styles';
 import {
-  Container, ProductImage, ProductDetail, AddCart,
+  Container,
+  ProductCard,
+  Image,
+  Info,
+  Text,
+  Name,
+  Brand,
+  Price,
+  Button,
+  ButtonText,
 } from './styles';
 
-export default class Product extends Component {
+class Product extends Component {
   static navigationOptions = {
-    title: 'Product details',
-    headerTitleStyle: { color: '#f19d9d' },
+    title: 'Product Details',
+    headerTintColor: colors.secondary,
+    headerTitleContainerStyle: {
+      justifyContent: 'center',
+    },
+    headerRight: <View />,
   };
 
-  handleAddToCart = (product) => {};
+  static propTypes = {
+    addItem: PropTypes.func.isRequired,
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+    }).isRequired,
+  };
+
+  handleAddToCart = (product) => {
+    const { addItem } = this.props;
+
+    addItem(product);
+  };
 
   render() {
-    const { product } = this.props;
+    const { navigation } = this.props;
+    const product = navigation.getParam('product');
 
     return (
       <Container>
-        <Product>
-          <ProductImage />
-          <ProductDetail />
-          <AddCart onPress={() => this.handleAddToCart(product)}>Add to cart</AddCart>
-        </Product>
+        <ProductCard>
+          <Image source={{ uri: product.image }} />
+          <Info>
+            <Text>
+              <Name>{product.name}</Name>
+              <Brand>{product.brand}</Brand>
+            </Text>
+            <Price>{`$ ${product.price}`}</Price>
+          </Info>
+          <Button
+            onPress={() => {
+              this.handleAddToCart(product);
+            }}
+          >
+            <ButtonText>Add to cart</ButtonText>
+          </Button>
+        </ProductCard>
       </Container>
     );
   }
 }
+
+const mapDispatchToProps = dispatch => bindActionCreators(CartActions, dispatch);
+
+export default connect(mapDispatchToProps)(Product);
