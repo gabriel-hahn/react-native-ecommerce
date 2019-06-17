@@ -1,21 +1,34 @@
 import styled from 'styled-components/native';
 
+import { colors, metrics } from '~/styles';
+
 export const Container = styled.View`
-  background: #f19d9d;
-`;
-
-export const Categories = styled.View`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-
-  margin: 16px;
+  background-color: ${colors.primary};
 `;
 
-export const Category = styled.TouchableOpacity``;
+export const CategoryBar = styled.View`
+  height: 54px;
+  background-color: ${colors.secondary};
+  display: flex;
+  justify-content: center;
+`;
 
-export const CategoryText = styled.Text`
-  font-size: 17px;
+export const CategoriesList = styled.FlatList`
+  padding: 0 ${metrics.basePadding}px;
+`;
+
+export const Category = styled.TouchableOpacity`
+  margin-right: 30px;
+  justify-content: center;
+  padding-top: ${({ active }) => (active ? 5 : 0)}px;
+  border-bottom-width: ${({ active }) => (active ? 5 : 0)};
+  border-color: ${colors.white};
+`;
+
+export const Title = styled.Text`
+  opacity: ${({ active }) => (active ? 1 : 0.6)};
+  color: ${colors.white};
   font-weight: bold;
-  color: ${props => (props.current ? '#fff' : '#f5bcbc')};
+  text-transform: uppercase;
 `;

@@ -38,6 +38,7 @@ class ProductList extends Component {
 
   loadProductsList = () => {
     const { categoryId, loadProductsRequest } = this.props;
+    this.setState({ currentCategory: categoryId });
 
     loadProductsRequest(categoryId);
   };

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import CategoriesActions from '~/store/ducks/categories';
 
 import {
-  Container, Categories, Category, CategoryText,
+  Container, CategoryBar, Category, CategoriesList, Title,
 } from './styles';
 
 class CategoriesHeader extends Component {
@@ -43,15 +43,22 @@ class CategoriesHeader extends Component {
 
     return (
       <Container>
-        <Categories>
-          {categories.map(category => (
-            <Category key={category.id} onPress={() => this.handleCurrentCategory(category.id)}>
-              <CategoryText current={currentCategory === category.id}>
-                {category.title}
-              </CategoryText>
-            </Category>
-          ))}
-        </Categories>
+        <CategoryBar>
+          <CategoriesList
+            data={categories}
+            keyExtractor={category => String(category.id)}
+            showsHorizontalScrollIndicator={false}
+            horizontal
+            renderItem={({ item: category }) => (
+              <Category
+                onPress={() => this.handleCurrentCategory(category.id)}
+                active={category.id === currentCategory}
+              >
+                <Title active={category.id === currentCategory}>{category.title}</Title>
+              </Category>
+            )}
+          />
+        </CategoryBar>
       </Container>
     );
   }
