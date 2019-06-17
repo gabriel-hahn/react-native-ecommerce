@@ -40,9 +40,13 @@ describe('CategoriesHeader Component', () => {
     });    
   });
 
-  describe('Component strucuture', () => {
+  describe('Component structure', () => {
     it('Should render 2 categories', () => {
       expect(wrapper.root.findAllByType('Text').length).toBe(2);
+    });
+
+    it('Should render correct titles', () => {
+      expect(wrapper.root.findAllByType('Text')[0].props.children).toEqual('T-shirt');
     });
   });
 });
