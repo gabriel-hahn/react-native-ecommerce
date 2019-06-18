@@ -14,3 +14,5 @@ install:
   - npm ci
 script:
   - "./android/gradlew assembleRelease -p android/"
+after_success:
+  - npm run coveralls
