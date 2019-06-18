@@ -31,4 +31,11 @@ describe('Cart Reducer', () => {
     const state = reducer(previousState, CartActions.changeItemQuantity(5, 12));
     expect(state.items[1].quantity).toEqual(12);
   });
+
+  it('Should increase product quantity when add the same product to cart', () => {
+    const newItem = { id: 4, title: 'T-shirt test' };
+    const state = reducer(previousState, CartActions.addItem(newItem));
+
+    expect(state.items[0].quantity).toEqual(2);
+  });
 });

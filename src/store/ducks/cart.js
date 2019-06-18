@@ -15,7 +15,16 @@ const INITIAL_STATE = Immutable({
 });
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.ADD_ITEM]: (state, { item }) => ({ items: [...state.items, { ...item, quantity: 1 }] }),
+  [Types.ADD_ITEM]: (state, { item }) => {
+    const foundItem = state.items.find(product => product.id === item.id);
+    if (foundItem) {
+      return {
+        items: state.items.map(product => (product.id === item.id ? { ...product, quantity: product.quantity + 1 } : product)),
+      };
+    }
+
+    return { items: [...state.items, { ...item, quantity: 1 }] };
+  },
   [Types.REMOVE_ITEM]: (state, { itemId }) => ({
     items: [...state.items.filter(item => item.id !== itemId)],
   }),

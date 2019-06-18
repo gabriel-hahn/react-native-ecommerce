@@ -14,7 +14,6 @@ export const CartList = styled.FlatList`
 `;
 
 export const CartItem = styled.View`
-  flex: 1;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;

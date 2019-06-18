@@ -7,9 +7,7 @@ import { colors, metrics } from '~/styles';
 export const Container = styled.View`
   width: ${metrics.screenWidth - metrics.basePadding}px;
   position: absolute;
-  top: ${Platform.OS === 'android'
-    ? metrics.baseMargin
-    : metrics.baseMargin + 20}px;
+  top: ${Platform.OS === 'android' ? metrics.baseMargin : metrics.baseMargin + 85}px;
   left: ${metrics.baseMargin}px;
   padding: ${metrics.baseMargin}px ${metrics.basePadding}px;
   background-color: ${colors.danger};

@@ -65,7 +65,7 @@ class Cart extends Component {
           <Fragment>
             <CartList
               data={items}
-              keyExtractor={product => String(product.id)}
+              keyExtractor={item => String(item.id)}
               showsVerticalScrollIndicator={false}
               renderItem={({ item: product }) => (
                 <CartItem key={product.id}>
@@ -108,7 +108,7 @@ class Cart extends Component {
 
 const mapStateToProps = state => ({
   items: state.cart.items,
-  amount: state.cart.items.reduce((n1, n2) => n1 + n2.quantity * n2.price, 0), // Calculate amount of price * quantity
+  amount: state.cart.items.reduce((total, item) => total + item.quantity * item.price, 0), // Calculate amount of price * quantity
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(CartActions, dispatch);
