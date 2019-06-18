@@ -59,4 +59,4 @@ buck-out/
 coverage
 
 # Snapshots
-__tests__/components/__snapshots__
+__tests__/**/__snapshots__
