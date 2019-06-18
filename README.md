@@ -1,5 +1,7 @@
 # React Native E-commerce
 
+[![Build Status](https://travis-ci.org/gabriel-hahn/react-native-ecommerce.svg?branch=master)](https://travis-ci.org/gabriel-hahn/react-native-ecommerce) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/153d38d4611a4492a0e24bf015695022)](https://www.codacy.com/app/gabriel_hahn/react-native-ecommerce?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gabriel-hahn/react-native-ecommerce&amp;utm_campaign=Badge_Grade) [![BCH compliance](https://bettercodehub.com/edge/badge/gabriel-hahn/react-native-ecommerce?branch=master)](https://bettercodehub.com/) [![Coverage Status](https://coveralls.io/repos/github/gabriel-hahn/react-native-ecommerce/badge.svg?branch=master)](https://coveralls.io/github/gabriel-hahn/react-native-ecommerce?branch=master) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/gabriel-hahn/react-native-ecommerce/pulls) [![Bugs](https://img.shields.io/github/issues/gabriel-hahn/react-native-ecommerce/bug.svg)](https://github.com/gabriel-hahn/react-native-ecommerce/issues?utf8=?&q=is%3Aissue+is%3Aopen+label%3Abug) [![The MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+
 E-commerce mobile application developed using React Native :necktie: :tophat:
 
 - React Native
