@@ -8,18 +8,18 @@ import ErrorMessage from '~/components/ErrorMessage';
 const mockStore = createStore();
 
 const INITIAL_STATE = {
-  error:  {
+  error: {
     visible: true,
-    message: "Message error test",
-  }    
+    message: 'Message error test',
+  },
 };
 
 const INVISIBLE_STATE = {
-    error:  {
-      visible: false,
-      message: "Message error test",
-    }    
-  };
+  error: {
+    visible: false,
+    message: 'Message error test',
+  },
+};
 
 let wrapper;
 let invisibleWrapper;
@@ -30,7 +30,7 @@ beforeEach(() => {
       <ErrorMessage />
     </Provider>,
   );
-  
+
   invisibleWrapper = ReactTestRender.create(
     <Provider store={mockStore(INVISIBLE_STATE)}>
       <ErrorMessage />
@@ -42,7 +42,7 @@ describe('ErrorMessage Component', () => {
   describe('Smoke tests', () => {
     it('Should render ErrorMessage component correctly', () => {
       expect(wrapper.toJSON()).toMatchSnapshot();
-    });    
+    });
   });
 
   describe('Component structure', () => {

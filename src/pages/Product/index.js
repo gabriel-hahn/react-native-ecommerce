@@ -38,9 +38,10 @@ class Product extends Component {
   };
 
   handleAddToCart = (product) => {
-    const { addItem } = this.props;
+    const { addItem, navigation } = this.props;
 
     addItem(product);
+    navigation.navigate('Cart');
   };
 
   render() {
@@ -73,4 +74,7 @@ class Product extends Component {
 
 const mapDispatchToProps = dispatch => bindActionCreators(CartActions, dispatch);
 
-export default connect(mapDispatchToProps)(Product);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(Product);

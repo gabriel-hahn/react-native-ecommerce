@@ -15,27 +15,27 @@ const INITIAL_STATE = {
         name: 'T-shirt',
         image: 'image test',
         brand: 'Brand test',
-        price: 35.36
+        price: 35.36,
       },
       {
         id: 2,
         name: 'Shoes',
         image: 'image teste 2',
         brand: 'Brand test 2',
-        price: 25.36
+        price: 25.36,
       },
       {
         id: 3,
         name: 'Shoes 2',
         image: 'image teste 3',
         brand: 'Brand test 3',
-        price: 125.36
-      }
+        price: 125.36,
+      },
     ],
   },
   categories: {
     currentId: 3,
-  }
+  },
 };
 
 const STATE_WITHOUT_ITEMS = {
@@ -44,8 +44,8 @@ const STATE_WITHOUT_ITEMS = {
   },
   categories: {
     currentId: 3,
-  }
-}
+  },
+};
 
 const navigation = { navigate: jest.fn() };
 
@@ -83,5 +83,5 @@ describe('ProductsList Component', () => {
     it('Should render no items', () => {
       expect(wrapperWithoutItems.root.findAllByType('TouchableOpacity').length).toBe(0);
     });
-  });  
+  });
 });

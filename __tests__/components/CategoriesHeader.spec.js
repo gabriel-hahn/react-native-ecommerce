@@ -8,19 +8,19 @@ import CategoriesHeader from '~/components/CategoriesHeader';
 const mockStore = createStore();
 
 const INITIAL_STATE = {
-  categories:  {
+  categories: {
     items: [
       {
         id: 1,
-        title: 'T-shirt'
+        title: 'T-shirt',
       },
       {
         id: 2,
-        title: 'Shoes'
-      }
+        title: 'Shoes',
+      },
     ],
     currentId: 2,
-  }    
+  },
 };
 
 let wrapper;
@@ -37,7 +37,7 @@ describe('CategoriesHeader Component', () => {
   describe('Smoke tests', () => {
     it('Should render CategoriesHeader component correctly', () => {
       expect(wrapper.toJSON()).toMatchSnapshot();
-    });    
+    });
   });
 
   describe('Component structure', () => {
