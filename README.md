@@ -1,5 +1,7 @@
 # React Native E-commerce
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a0c1caa5235f4e5fb2668743064b1a60)](https://app.codacy.com/app/gabriel_hahn/react-native-ecommerce?utm_source=github.com&utm_medium=referral&utm_content=gabriel-hahn/react-native-ecommerce&utm_campaign=Badge_Grade_Dashboard)
+
 E-commerce mobile application developed using React Native :necktie: :tophat:
 
 - React Native
