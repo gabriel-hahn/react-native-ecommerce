@@ -22,6 +22,7 @@
     "redux": "^4.0.1",
     "redux-saga": "^1.0.2",
     "reduxsauce": "^1.1.0",
+    "rn-placeholder": "^2.0.0",
     "seamless-immutable": "^7.1.4",
     "styled-components": "^4.2.1"
   },
@@ -59,6 +60,9 @@
       "!src/store/ducks/index.js",
       "src/store/sagas/*.js",
       "!src/store/sagas/index.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|rn-placeholder)"
     ]
   },
   "engines": {

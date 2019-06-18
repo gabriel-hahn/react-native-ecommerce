@@ -32,6 +32,7 @@ const INITIAL_STATE = {
         price: 125.36,
       },
     ],
+    loading: false,
   },
   categories: {
     currentId: 3,
@@ -41,6 +42,7 @@ const INITIAL_STATE = {
 const STATE_WITHOUT_ITEMS = {
   products: {
     items: [],
+    loading: false,
   },
   categories: {
     currentId: 3,

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 
+import PlaceholderLoading from '~/components/PlaceholderLoading';
+
 import ProductsActions from '~/store/ducks/products';
 
 import {
@@ -53,9 +55,11 @@ class ProductList extends Component {
   };
 
   render() {
-    const { items } = this.props;
+    const { items, loading } = this.props;
 
-    return (
+    return loading ? (
+      <PlaceholderLoading loading={loading} />
+    ) : (
       <Container>
         <ProductsList
           data={items}
@@ -78,6 +82,7 @@ class ProductList extends Component {
 
 const mapStateToProps = state => ({
   items: state.products.items,
+  loading: state.products.loading,
   categoryId: state.categories.currentId,
 });
 
