@@ -7,7 +7,7 @@ E-commerce mobile application developed using React Native :necktie: :tophat:
 - React Native
 - Redux / Saga
 - JSON Server
-- Unit tests
+- Unit Testing
 
 ## Dependencies
 
@@ -24,7 +24,7 @@ $ yarn
 To run JSON Server, you could do some configurations or execute the follow command if you installed json-server as global:
 
 ```sh
-$ json-server server.json -p 3001 -w -d 500
+$ json-server server.json -p 3001 -w -d 300
 ```
 
 To run the project, you must have installed Android and/or iOS environment. Use 'run-ios' or 'run-android':
