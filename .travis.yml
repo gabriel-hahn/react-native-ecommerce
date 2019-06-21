@@ -23,3 +23,5 @@ matrix:
         - brew cask install fastlane
       script:
         - fastlane ios test
+after_success:
+  - npm run coveralls
