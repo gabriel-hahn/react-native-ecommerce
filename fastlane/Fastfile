@@ -1,0 +1,13 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+
+platform :ios do
+  desc "Runs all the tests"
+  lane :test do
+    # https://docs.fastlane.tools/actions/scan/
+    scan(
+      project: "ios/ecommerce.xcodeproj",
+      scheme: "ecommerce"
+    )
+  end
+end

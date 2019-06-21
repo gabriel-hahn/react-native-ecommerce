@@ -60,3 +60,6 @@ coverage
 
 # Snapshots
 __tests__/**/__snapshots__
+
+# Fastline
+fastlane/test_output
