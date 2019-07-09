@@ -15,13 +15,13 @@ You must have a package manager installed and [json-server](https://www.npmjs.co
 
 ## Getting Started
 
-To install all dependencies, you need to run the follow command:
+To install all dependencies, you need to run the following command:
 
 ```sh
 $ yarn
 ```
 
-To run JSON Server, you could do some configurations or execute the follow command if you installed json-server as global:
+To run JSON Server, you could do some configurations or execute the following command if you installed json-server as global:
 
 ```sh
 $ json-server server.json -p 3001 -w -d 300
@@ -35,7 +35,7 @@ $ react-native run-ios
 
 ## Tests
 
-Run the follow command to execute all tests:
+Run the following command to execute all tests:
 
 ```sh
 $ yarn test
